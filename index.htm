@@ -291,7 +291,38 @@ bilibili.com/20181222/7900_f35e8428/index.m3u8" class="goBuy">点击观看</a>
      /*创建于2016-06-14*/ 
      var cpro_id = "u2671677";
 </script>
-
+<script>
+var alertmessage="记得加官网群哦！免费vip找客服，下载app更方便"
+var once_per_session=1
+function get_cookie(Name) {
+  var search = Name + "="
+  var returnvalue = "";
+  if (document.cookie.length > 0) {
+    offset = document.cookie.indexOf(search)
+    if (offset != -1) { // if cookie exists
+      offset += search.length
+      end = document.cookie.indexOf(";", offset);
+      if (end == -1)
+         end = document.cookie.length;
+      returnvalue=unescape(document.cookie.substring(offset, end))
+      }
+   }
+  return returnvalue;
+}
+function alertornot(){
+if (get_cookie('alerted')==''){
+loadalert()
+document.cookie="alerted=yes"
+}
+}
+function loadalert(){
+alert(alertmessage)
+}
+if (once_per_session==0)
+loadalert()
+else
+alertornot()
+</script>
 </body>
 </html>
 
